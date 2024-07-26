@@ -14,10 +14,10 @@ router.on('/').render('pages/home')
 
 router
   .group(() => {
-    router.get('/todos', [TodoController, 'index'])
-    router.post('/todos', [TodoController, 'store'])
-    router.get('/todos/:id', [TodoController, 'show'])
-    router.put('/todos/:id', [TodoController, 'update'])
-    router.delete('/todos/:id', [TodoController, 'destroy'])
+    router.get('/todos', [TodoController, 'index']).as('todos.index')
+    router.post('/todos', [TodoController, 'store']).as('todos.store')
+    router.get('/todos/:id', [TodoController, 'show']).as('todos.show')
+    router.put('/todos/:id', [TodoController, 'update']).as('todos.update')
+    router.delete('/todos/:id', [TodoController, 'destroy']).as('todos.destroy')
   })
   .prefix('api')
