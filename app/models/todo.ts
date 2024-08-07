@@ -12,7 +12,9 @@ export default class Todo extends BaseModel {
   @column()
   declare description: string
 
-  @column()
+  @column({
+    serialize: (value: string) => value.charAt(0).toUpperCase() + value.slice(1).toLowerCase(),
+  })
   declare priority: Priority
 
   @column()
