@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@adonisjs/lucid/orm'
+import { Priority } from '../enums/priority.js'
 
 export default class Todo extends BaseModel {
   @column({ isPrimary: true })
@@ -10,6 +11,9 @@ export default class Todo extends BaseModel {
 
   @column()
   declare description: string
+
+  @column()
+  declare priority: Priority
 
   @column()
   declare completed: boolean

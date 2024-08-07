@@ -1,4 +1,5 @@
 import { BaseSchema } from '@adonisjs/lucid/schema'
+import { Priority } from '../../app/enums/priority.js'
 
 export default class extends BaseSchema {
   protected tableName = 'todos'
@@ -8,6 +9,7 @@ export default class extends BaseSchema {
       table.increments('id')
       table.string('title').notNullable()
       table.text('description').nullable()
+      table.enum('priority', Object.values(Priority)).notNullable()
       table.boolean('completed').defaultTo(false)
       table.timestamp('created_at')
       table.timestamp('updated_at')

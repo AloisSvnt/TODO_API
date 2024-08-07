@@ -6,6 +6,7 @@ export const TodoFactory = factory
     return {
       title: faker.lorem.sentence(),
       description: faker.lorem.paragraph(),
+      priority: faker.number.int({ min: 1, max: 3 }),
       completed: faker.datatype.boolean(0.2),
     }
   })
